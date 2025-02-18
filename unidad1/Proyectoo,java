@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Proyectoo {
+	public static void main(String[] args) {
+		int avance_t,avance_l,pasostotales,pasost,pasosl,distancia;
+		Scanner lector= new Scanner (System.in);
+		distancia= 10;
+		avance_t= 0;
+		avance_l= 0;
+		// pedir al usuario pasos dados por la tortuga y la liebre en cada tnterqaccion,
+		//mientras ninguno de los dos an llegados aun 
+		//mientras avance_t<distancia&&avancel<distancia
+		while(avance_t<distancia&&avance_l<distancia){//!!!!!!!!!!!!
+		//pedir paos de la rortuga
+		System.out.println("ingrese el numero de pasos de la tortuga:");
+		pasost=lector.nextInt();
+		//pedir paso de la libre
+		System.out.println("ingrese el numero de pasos de la liebre:");
+		pasosl=lector.nextInt();
+		//SUMAR LOS PASOS DE LA TORTUGA
+		avance_t=avance_t+pasost;
+		//SUMA DE PASO DE LA LIEBRE 
+		avance_l=avance_l+pasosl;
+		//mostrar informacion
+		System.out.printf("la tortuga ha avanzado, la liebre ha avanzado",avance_t,avance_l);
+	
+		}
+	if(avance_l>avance_t) {
+		System.out.println("gano la liebre");
+	}
+	else {
+		if(avance_l<avance_t) {
+			System.out.println("gano la tortuga");
+		}
+		else {System.out.println("hubo empate");
+	
+	}
+}
+}
+}
