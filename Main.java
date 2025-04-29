@@ -4,56 +4,48 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Crear una bodega
-        Bodega bodega = new Bodega();
-        bodega.setId(1);
-        bodega.setDireccion("Calle Falsa 123");
-        bodega.setCapacidadMaximaToneladas(1000.0);
-        bodega.setCapacidadMaximaTrenes(5);
-        bodega.setTipoCarga("Granos");
+        
+        Bodega bodegaAlimentos = new Bodega(1, "Calle 123", 800, 5, "Alimentos");
+        Bodega bodegaQuimicos = new Bodega(2, "calle 456", 800, 5, "Insumos Químicos");
 
-        // Crear trenes
-        Tren tren1 = new Tren();
-        tren1.setId(101);
-        tren1.setCargaMaximaToneladas(200.0);
-        tren1.setCargaActualToneladas(150.0);
-        tren1.setTipoCarga("Granos");
+        
+        Tren tren1 = new Tren(1, 50, 100, "Alimentos");
+        Tren tren2 = new Tren(2, 5, 200, "Químicos");
 
-        Tren tren2 = new Tren();
-        tren2.setId(102);
-        tren2.setCargaMaximaToneladas(300.0);
-        tren2.setCargaActualToneladas(250.0);
-        tren2.setTipoCarga("Granos");
+        
+        System.out.println("Seleccione un tren para agregar a la bodega 1:");
+        System.out.println("1. ID: " + tren1.getId() + ", Tipo de carga: " + tren1.getTipoCarga() + ", Capacidad: " + tren1.getCapacidad() + " toneladas");
+        System.out.println("2. ID: " + tren2.getId() + ", Tipo de carga: " + tren2.getTipoCarga() + ", Capacidad: " + tren2.getCapacidad() + " toneladas");
+        
+        System.out.print("Ingrese el ID del tren: ");
+        int idTrenAgregar = scanner.nextInt();
 
-        Tren tren3 = new Tren();
-        tren3.setId(103);
-        tren3.setCargaMaximaToneladas(400.0);
-        tren3.setCargaActualToneladas(350.0);
-        tren3.setTipoCarga("Granos");
+        
+        if (idTrenAgregar == 1) {
+            bodegaAlimentos.agregarTren(tren1);
+        } else if (idTrenAgregar == 2) {
+            bodegaQuimicos.agregarTren(tren2);
+        } 
+        
 
-        // Agregar trenes a la bodega
-        bodega.agregarTren(tren1);
-        bodega.agregarTren(tren2);
-        bodega.agregarTren(tren3);
-
-        // Mostrar información de la bodega
-        bodega.mostrarInformacion();
-
-        // Dar salida a un tren
-        System.out.println("¿Qué tren desea dar de salida? (Ingrese ID del tren)");
+        
+        System.out.println("Seleccione un tren para dar salida:");
+        System.out.println("1. ID: " + tren1.getId() + ", Tipo de carga: " + tren1.getTipoCarga());
+        System.out.println("2. ID: " + tren2.getId() + ", Tipo de carga: " + tren2.getTipoCarga());
+        
+        System.out.print("Ingrese el ID del tren: ");
         int idTrenSalida = scanner.nextInt();
-        if (idTrenSalida == tren1.getId()) {
-            bodega.darSalidaTren(tren1);
-        } else if (idTrenSalida == tren2.getId()) {
-            bodega.darSalidaTren(tren2);
-        } else if (idTrenSalida == tren3.getId()) {
-            bodega.darSalidaTren(tren3);
-        } else {
-            System.out.println("Tren no encontrado.");
-        }
 
-        // Mostrar información actualizada de la bodega
-        bodega.mostrarInformacion();
+       
+        if (idTrenSalida == 1) {
+            bodegaAlimentos.darSalidaTren(tren1);
+        } else if (idTrenSalida == 2) {
+            bodegaQuimicos.darSalidaTren(tren2);
+        } 
+        
+        bodegaAlimentos.mostrarInformacion();
+        bodegaQuimicos.mostrarInformacion();
 
+        scanner.close();
     }
 }
