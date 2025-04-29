@@ -1,43 +1,27 @@
 public class Tren {
-    // Atributos
     private int id;
-    private double cargaMaximaToneladas;
-    private double cargaActualToneladas;
-    private String tipoCarga;
+    private double capacidad; 
+    private String tipoCarga; 
 
-    // Constructor
-    public Tren() {
+    public Tren(int id, int vagones, double capacidad, String tipoCarga) {
+        this.id = id;
+        this.capacidad = capacidad;
+        this.tipoCarga = tipoCarga;
     }
 
-    // Getters y Setters
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public double getCargaMaximaToneladas() {
-        return cargaMaximaToneladas;
-    }
-
-    public void setCargaMaximaToneladas(double cargaMaximaToneladas) {
-        this.cargaMaximaToneladas = cargaMaximaToneladas;
-    }
-
-    public double getCargaActualToneladas() {
-        return cargaActualToneladas;
-    }
-
-    public void setCargaActualToneladas(double cargaActualToneladas) {
-        this.cargaActualToneladas = cargaActualToneladas;
+    public double getCapacidad() {
+        return capacidad;
     }
 
     public String getTipoCarga() {
         return tipoCarga;
     }
 
-    public void setTipoCarga(String tipoCarga) {
-        this.tipoCarga = tipoCarga;
-    }}
+    public void darSalida() {
+        System.out.println("El tren " + id + " ha salido de la bodega.");
+    }
+}
